@@ -1,0 +1,36 @@
+<div class="login-wrapper">
+
+  <!-- Floating Tech Lights -->
+  <div class="tech-light tech-light-1"></div>
+  <div class="tech-light tech-light-2"></div>
+
+  <!-- Login Card -->
+  <div class="login-card">
+
+    <img src="assets/images/logo.png"
+         alt="Visipak"
+         class="company-logo" />
+
+    <h2 class="login-title">Visipak Enterprise Portal</h2>
+
+    <button class="google-btn"
+            (click)="login()"
+            [disabled]="isLoading">
+
+      <div *ngIf="!isLoading" class="btn-content">
+        <img src="https://www.svgrepo.com/show/475656/google-color.svg"
+             alt="Google"
+             class="google-icon">
+        Sign in with Google
+      </div>
+
+      <div *ngIf="isLoading" class="loading-state">
+        <div class="spinner"></div>
+        Verifying access...
+      </div>
+
+    </button>
+
+  </div>
+
+</div>

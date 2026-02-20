@@ -1,0 +1,222 @@
+/* =============================== */
+/* Base Layout */
+/* =============================== */
+
+.login-wrapper {
+  height: 100vh;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  font-family: 'Inter', sans-serif;
+  position: relative;
+  overflow: hidden;
+
+  background: linear-gradient(135deg, #0f172a, #111827, #0b1a2f);
+  animation: fadeInPage 1.2s ease-out;
+}
+
+/* =============================== */
+/* Industrial Grid */
+/* =============================== */
+
+.login-wrapper::before {
+  content: "";
+  position: absolute;
+  inset: 0;
+  background-image:
+    linear-gradient(rgba(255,255,255,0.04) 1px, transparent 1px),
+    linear-gradient(90deg, rgba(255,255,255,0.04) 1px, transparent 1px);
+  background-size: 70px 70px;
+  z-index: 0;
+}
+
+/* =============================== */
+/* Floating AI Lights */
+/* =============================== */
+
+.tech-light {
+  position: absolute;
+  border-radius: 50%;
+  filter: blur(120px);
+  opacity: 0.6;
+  animation: float 18s ease-in-out infinite alternate;
+  z-index: 0;
+}
+
+.tech-light-1 {
+  width: 600px;
+  height: 600px;
+  background: radial-gradient(circle, rgba(22,163,74,0.35), transparent 70%);
+  top: -200px;
+  right: -150px;
+}
+
+.tech-light-2 {
+  width: 500px;
+  height: 500px;
+  background: radial-gradient(circle, rgba(59,130,246,0.25), transparent 70%);
+  bottom: -150px;
+  left: -150px;
+  animation-duration: 22s;
+}
+
+@keyframes float {
+  0% { transform: translate(0,0); }
+  100% { transform: translate(60px,-40px); }
+}
+
+/* =============================== */
+/* Premium Glass Card */
+/* =============================== */
+
+.login-card {
+  width: 460px;
+  padding: 70px 60px;
+  border-radius: 24px;
+  text-align: center;
+  position: relative;
+  z-index: 2;
+background-color: white;
+  /* background: rgba(255, 255, 255, 0.88); */
+  backdrop-filter: blur(22px);
+  -webkit-backdrop-filter: blur(22px);
+
+  border: 1px solid rgba(255,255,255,0.4);
+
+  box-shadow:
+    0 50px 140px rgba(0,0,0,0.55),
+    0 0 0 1px rgba(255,255,255,0.08) inset;
+
+  animation: fadeInCard 1.3s ease-out;
+}
+
+@keyframes fadeInCard {
+  from { opacity: 0; transform: translateY(30px); }
+  to { opacity: 1; transform: translateY(0); }
+}
+
+/* =============================== */
+/* Logo */
+/* =============================== */
+
+.company-logo {
+  width: 180px;
+  margin-bottom: 45px;
+}
+
+/* =============================== */
+/* Heading */
+/* =============================== */
+
+.login-card h2 {
+  font-size: 24px;
+  font-weight: 600;
+  color: #111827;
+  margin-bottom: 45px;
+  letter-spacing: 0.5px;
+}
+
+/* =============================== */
+/* Premium Google Button */
+/* =============================== */
+
+.google-btn {
+  width: 100%;
+  padding: 18px;
+  border-radius: 16px;
+  border: none;
+  cursor: pointer;
+
+  font-weight: 600;
+  font-size: 15px;
+  color: white;
+
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  gap: 14px;
+
+  background: linear-gradient(135deg, #16A34A, #15803D);
+  position: relative;
+  overflow: hidden;
+
+  transition: all 0.35s ease;
+}
+
+/* Shimmer Sweep */
+
+.google-btn::before {
+  content: "";
+  position: absolute;
+  top: 0;
+  left: -80%;
+  width: 50%;
+  height: 100%;
+  background: linear-gradient(
+    120deg,
+    transparent,
+    rgba(255,255,255,0.4),
+    transparent
+  );
+  transform: skewX(-25deg);
+  transition: all 0.9s ease;
+}
+
+.google-btn:hover::before {
+  left: 130%;
+}
+
+.google-btn:hover {
+  transform: translateY(-4px);
+  box-shadow: 0 25px 55px rgba(22,163,74,0.45);
+}
+
+/* Google Icon */
+
+.google-icon {
+  width: 20px;
+  height: 20px;
+  background: white;
+  border-radius: 4px;
+  padding: 2px;
+}
+
+/* =============================== */
+/* Page Transition */
+/* =============================== */
+
+
+
+@keyframes fadeInPage {
+  from { opacity: 0; }
+  to { opacity: 1; }
+}
+.loading-state {
+  display: flex;
+  align-items: center;
+  gap: 12px;
+}
+
+.spinner {
+  width: 18px;
+  height: 18px;
+  border: 2px solid rgba(255,255,255,0.3);
+  border-top: 2px solid white;
+  border-radius: 50%;
+  animation: spin 0.7s linear infinite;
+}
+
+@keyframes spin {
+  to { transform: rotate(360deg); }
+}
+
+
+
+
+.google-btn:disabled {
+  cursor: default;   /* Makes the cursor normal instead of disabled icon */
+  opacity: 0.9;      /* Optional: keeps button looking normal */
+}
+
+
+

@@ -1,0 +1,181 @@
+<div class="vp-container" [class.dark-mode]="isDarkMode">
+  <!-- Mobile overlay -->
+  <div class="vp-overlay" *ngIf="isMobileOpen" (click)="toggleMobile()"></div>
+
+  <!-- Sidebar -->
+  <aside class="vp-sidebar" [class.collapsed]="isCollapsed" [class.mobile-open]="isMobileOpen">
+    <div class="vp-brand">
+      <img src="assets/images/logo.png" alt="Visipak" [class.is-mini]="isCollapsed" />
+    </div>
+
+    <button class="vp-collapse-toggle" (click)="toggleSidebar()">
+      <i class="fa-solid" [ngClass]="isCollapsed ? 'fa-chevron-right' : 'fa-chevron-left'"></i>
+    </button>
+
+    <nav class="vp-nav">
+      <div class="vp-nav-item active">
+        <div class="vp-nav-icon">    <i class="fa-solid fa-layer-group"></i></div>
+        <span *ngIf="!isCollapsed">Dashboard</span>
+      </div>
+      <div class="vp-nav-item" (click)="navigate('https://www.visipak.co.in/')">
+        <div class="vp-nav-icon"><i class="fa-solid fa-truck-fast"></i></div>
+        <span *ngIf="!isCollapsed">Dispatch</span>
+      </div>
+      <div class="vp-nav-item" (click)="navigate('https://www.visipak.co.in/')">
+        <div class="vp-nav-icon"><i class="fa-solid fa-boxes"></i></div>
+        <span *ngIf="!isCollapsed">Warehouse</span>
+      </div>
+      <div class="vp-nav-item" (click)="navigate('https://www.visipak.co.in/')">
+        <div class="vp-nav-icon"><i class="fa-solid fa-rss"></i></div>
+        <span *ngIf="!isCollapsed">RFID</span>
+      </div>
+      <div class="vp-nav-item" (click)="navigate('https://www.visipak.co.in/')">
+        <div class="vp-nav-icon"><i class="fa-solid fa-microchip"></i></div>
+        <span *ngIf="!isCollapsed">MES</span>
+      </div>
+    </nav>
+  </aside>
+
+  <!-- Main Content -->
+  <main class="vp-main-wrapper">
+    <!-- Header -->
+  <header class="vp-header">
+  <div class="vp-header-left">
+    <button class="vp-mobile-trigger" (click)="toggleMobile()">☰</button>
+    <div>
+      <h1 class="vp-page-title">
+        Visipak <span>Enterprise Portal</span>
+      </h1>
+      <p class="vp-page-status">
+        <span class="dot-online"></span>
+        All Systems Operational
+      </p>
+    </div>
+  </div>
+
+  <div class="vp-header-right">
+
+    <!-- Dark Mode -->
+    <button class="vp-circle-btn" (click)="toggleDarkMode()">
+      <i class="fa-solid" [ngClass]="isDarkMode ? 'fa-sun' : 'fa-moon'"></i>
+    </button>
+
+    <!-- Notifications -->
+    <button class="vp-circle-btn">
+      <i class="fa-regular fa-bell"></i>
+      <span class="vp-notif-ping"></span>
+    </button>
+
+    <!-- Profile Dropdown -->
+  <div class="dropdown vp-profile-wrapper">
+  <div
+    class="vp-profile-pill dropdown-toggle"
+    data-bs-toggle="dropdown"
+    aria-expanded="false"
+  >
+    <div class="vp-user-avatar">R</div>
+    <span class="vp-user-name">Raju</span>
+  </div>
+
+  <ul class=" dropdown-menu dropdown-menu-end vp-profile-dropdown">
+    <li>
+      <a class="dropdown-item" href="#">
+        <i class="fa-solid fa-gear me-2"></i>
+        Settings
+      </a>
+    </li>
+    <li>
+      <a class="dropdown-item text-danger" (click)="logout($event)">
+        <i class="fa-solid fa-right-from-bracket me-2"></i>
+        Sign Out
+      </a>
+    </li>
+  </ul>
+</div>
+  </div>
+</header>
+
+    <!-- Cards / Grid -->
+    <div class="vp-content">
+      <div class="vp-grid">
+        <!-- Dispatch -->
+        <div class="vp-modern-card theme1" (click)="navigate('https://www.visipak.co.in/')">
+       
+          <div class="vp-card-body">
+            <div class="vp-card-icon blue"><i class="fa-solid fa-truck-fast"></i></div>
+            <h3>Logistics & Dispatch</h3>
+            <p>Monitor real-time shipment scheduling and carrier performance analytics.</p>
+            <div class="vp-card-action">Open  <i class="fa-solid fa-arrow-right"></i></div>
+          </div>
+        </div>
+      
+
+        <!-- Warehouse -->
+        <div class="vp-modern-card theme2" (click)="navigate('https://www.visipak.co.in/')">
+     
+          <div class="vp-card-body">
+            <div class="vp-card-icon teal"><i class="fa-solid fa-boxes"></i></div>
+            <h3>Warehouse Tracking</h3>
+            <p>End-to-end inventory visibility and automated storage management.</p>
+            <div class="vp-card-action">Open  <i class="fa-solid fa-arrow-right"></i></div>
+          </div>
+        </div>
+
+        <!-- RFID -->
+        <div class="vp-modern-card theme3" (click)="navigate('https://www.visipak.co.in/')">
+   
+          <div class="vp-card-body">
+            <div class="vp-card-icon purple"><i class="fa-solid fa-rss"></i></div>
+            <h3>RFID Tracker</h3>
+            <p>Track high-value assets across global nodes with active RFID sensing.</p>
+            <div class="vp-card-action">Open  <i class="fa-solid fa-arrow-right"></i></div>
+          </div>
+        </div>
+
+        <!-- MES -->
+        <div class="vp-modern-card theme4" (click)="navigate('https://www.visipak.co.in/')">
+
+          <div class="vp-card-body">
+            <div class="vp-card-icon indigo"><i class="fa-solid fa-microchip"></i></div>
+            <h3>MES Insights</h3>
+            <p>Manufacturing execution data and shop floor performance metrics.</p>
+            <div class="vp-card-action">Open  <i class="fa-solid fa-arrow-right"></i></div>
+          </div>
+        </div>
+      </div>
+    </div>
+  
+<!-- Modern Chatbot -->
+<div class="vp-chatbot" [class.dark-mode]="isDarkMode">
+  <!-- Chatbot Toggle Button -->
+  <div class="vp-chatbot-toggle" (click)="toggleChat()" title="Chat with Assistant">
+    <i class="fa-solid fa-robot"></i>
+  </div>
+
+  <!-- Chat Window -->
+  <div class="vp-chatbot-window" [class.open]="isChatOpen">
+    <div class="vp-chatbot-header">
+      <span>Visipak Assistant</span>
+      <button (click)="toggleChat()" class="vp-close-btn">&times;</button>
+    </div>
+
+    <div class="vp-chatbot-body">
+      <div *ngFor="let msg of chatMessages" [ngClass]="['vp-chat-msg', msg.type]">
+        {{ msg.text }}
+      </div>
+    </div>
+
+    <div class="vp-chatbot-footer">
+      <input 
+        type="text" 
+        placeholder="Type a message..." 
+        [(ngModel)]="userMessage" 
+        (keydown.enter)="sendMessage()"
+      />
+      <button (click)="sendMessage()"><i class="fa-solid fa-paper-plane"></i></button>
+    </div>
+  </div>
+</div>
+  </main>
+  
+</div>
