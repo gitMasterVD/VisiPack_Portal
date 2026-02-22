@@ -1,0 +1,46 @@
+<div id="chat-container">
+
+    <header class="chat-header">
+      <div class="bot-avatar-main">
+        <i class="bi bi-robot"></i>
+      </div>
+      <div class="header-info">
+        <h1>Dispatch Assistant</h1>
+      </div>
+    </header>
+  
+    <!-- Chat Body -->
+    <div class="chat-body">
+      <div *ngFor="let msg of messages"
+           class="message-row"
+           [ngClass]="msg.type === 'bot' ? 'bot-row' : 'user-row'">
+  
+        <div class="avatar-small"
+             [ngClass]="msg.type === 'bot' ? 'bot-avatar-small' : 'user-avatar-small'">
+          <i class="bi"
+             [ngClass]="msg.type === 'bot' ? 'bi-robot' : 'bi-person-fill'"></i>
+        </div>
+  
+        <div class="message-content"
+             [ngClass]="msg.type === 'bot' ? 'bot-content' : 'user-content'"
+             [innerHTML]="msg.text">
+        </div>
+      </div>
+    </div>
+  
+    <!-- Input Area -->
+    <div class="chat-input-area">
+      <input
+        type="text"
+        [(ngModel)]="userMessage"
+        (keyup.enter)="handleUserInput()"
+        placeholder="Type your message..." />
+  
+      <button (click)="handleUserInput()">Send</button>
+    </div>
+  
+    <div class="chat-footer">
+      Secure Logistic
+    </div>
+  
+  </div>

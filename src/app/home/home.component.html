@@ -17,11 +17,11 @@
         <div class="vp-nav-icon">    <i class="fa-solid fa-layer-group"></i></div>
         <span *ngIf="!isCollapsed">Dashboard</span>
       </div>
-      <div class="vp-nav-item" (click)="navigate('https://www.visipak.co.in/')">
+      <div class="vp-nav-item" (click)="navigate('https://vddigitalalliance.com/VisiPakDispatchApp/')">
         <div class="vp-nav-icon"><i class="fa-solid fa-truck-fast"></i></div>
         <span *ngIf="!isCollapsed">Dispatch</span>
       </div>
-      <div class="vp-nav-item" (click)="navigate('https://www.visipak.co.in/')">
+      <div class="vp-nav-item" (click)="navigate('https://vddigitalalliance.com/WarehouseTracking/')">
         <div class="vp-nav-icon"><i class="fa-solid fa-boxes"></i></div>
         <span *ngIf="!isCollapsed">Warehouse</span>
       </div>
@@ -29,7 +29,7 @@
         <div class="vp-nav-icon"><i class="fa-solid fa-rss"></i></div>
         <span *ngIf="!isCollapsed">RFID</span>
       </div>
-      <div class="vp-nav-item" (click)="navigate('https://www.visipak.co.in/')">
+      <div class="vp-nav-item" (click)="navigate('https://corrugate-flow.lovable.app/')">
         <div class="vp-nav-icon"><i class="fa-solid fa-microchip"></i></div>
         <span *ngIf="!isCollapsed">MES</span>
       </div>
@@ -99,7 +99,7 @@
     <div class="vp-content">
       <div class="vp-grid">
         <!-- Dispatch -->
-        <div class="vp-modern-card theme1" (click)="navigate('https://www.visipak.co.in/')">
+        <div class="vp-modern-card theme1" (click)="navigate('https://vddigitalalliance.com/VisiPakDispatchApp/')">
        
           <div class="vp-card-body">
             <div class="vp-card-icon blue"><i class="fa-solid fa-truck-fast"></i></div>
@@ -111,7 +111,7 @@
       
 
         <!-- Warehouse -->
-        <div class="vp-modern-card theme2" (click)="navigate('https://www.visipak.co.in/')">
+        <div class="vp-modern-card theme2" (click)="navigate('https://vddigitalalliance.com/WarehouseTracking/')">
      
           <div class="vp-card-body">
             <div class="vp-card-icon teal"><i class="fa-solid fa-boxes"></i></div>
@@ -133,7 +133,7 @@
         </div>
 
         <!-- MES -->
-        <div class="vp-modern-card theme4" (click)="navigate('https://www.visipak.co.in/')">
+        <div class="vp-modern-card theme4" (click)="navigate('https://corrugate-flow.lovable.app')">
 
           <div class="vp-card-body">
             <div class="vp-card-icon indigo"><i class="fa-solid fa-microchip"></i></div>
@@ -154,26 +154,7 @@
 
   <!-- Chat Window -->
   <div class="vp-chatbot-window" [class.open]="isChatOpen">
-    <div class="vp-chatbot-header">
-      <span>Visipak Assistant</span>
-      <button (click)="toggleChat()" class="vp-close-btn">&times;</button>
-    </div>
-
-    <div class="vp-chatbot-body">
-      <div *ngFor="let msg of chatMessages" [ngClass]="['vp-chat-msg', msg.type]">
-        {{ msg.text }}
-      </div>
-    </div>
-
-    <div class="vp-chatbot-footer">
-      <input 
-        type="text" 
-        placeholder="Type a message..." 
-        [(ngModel)]="userMessage" 
-        (keydown.enter)="sendMessage()"
-      />
-      <button (click)="sendMessage()"><i class="fa-solid fa-paper-plane"></i></button>
-    </div>
+    <app-chatbot></app-chatbot>
   </div>
 </div>
   </main>

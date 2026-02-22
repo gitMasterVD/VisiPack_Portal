@@ -1,16 +1,23 @@
 import { Component, ElementRef, HostListener } from '@angular/core';
 import { Router } from '@angular/router';
+import { CommonModule } from '@angular/common';
+import { ChatbotComponent } from '../chatbot/chatbot.component';
+
 
 @Component({
   selector: 'app-home',
-  standalone: false,
+  standalone: true,
+  imports: [
+    CommonModule,      // ✅ for *ngIf, ngClass
+    ChatbotComponent   // ✅ for <app-chatbot>
+  ],
   templateUrl: './home.component.html',
   styleUrl: './home.component.css'
 })
 export class HomeComponent {
   isCollapsed = false;
-  isMobileOpen = false;
   isDarkMode = false;
+  isMobileOpen = false;
   activeModule = 'dashboard';
   isProfileOpen = false;
   isChatOpen = false;
