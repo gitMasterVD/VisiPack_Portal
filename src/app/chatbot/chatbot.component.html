@@ -1,3 +1,4 @@
+
 <div id="chat-container">
 
     <header class="chat-header">
@@ -5,12 +6,16 @@
         <i class="bi bi-robot"></i>
       </div>
       <div class="header-info">
-        <h1>Dispatch Assistant</h1>
+        <h3>Dispatch Assistant</h3>
       </div>
+        <!-- Close Button -->
+  <button class="close-btn" (click)="closeChat()">
+    <i class="bi bi-x-lg"></i>
+  </button>
     </header>
   
     <!-- Chat Body -->
-    <div class="chat-body">
+    <div class="chat-body" #scrollMe>
       <div *ngFor="let msg of messages"
            class="message-row"
            [ngClass]="msg.type === 'bot' ? 'bot-row' : 'user-row'">

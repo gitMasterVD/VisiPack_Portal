@@ -21,8 +21,7 @@ export class HomeComponent {
   activeModule = 'dashboard';
   isProfileOpen = false;
   isChatOpen = false;
-userMessage = '';
-chatMessages: { type: 'user' | 'bot', text: string }[] = [];
+
 
 
   constructor(private router: Router,  private eRef: ElementRef) {
@@ -77,27 +76,9 @@ navigate(target: string) {
 toggleChat() {
   this.isChatOpen = !this.isChatOpen;
 
-  if (this.isChatOpen) {
-    // Clear previous messages and input
-    this.chatMessages = [];
-    this.userMessage = '';
-  }
+ 
 }
 
-// Send message
-sendMessage() {
-  if (!this.userMessage.trim()) return;
-
-  // Add user message
-  this.chatMessages.push({ type: 'user', text: this.userMessage });
-
-  // Dummy bot response (replace with API call if needed)
-  setTimeout(() => {
-    this.chatMessages.push({ type: 'bot', text: `You said: "${this.userMessage}"` });
-  }, 500);
-
-  this.userMessage = '';
-}
 
 
 logout(event: Event) {

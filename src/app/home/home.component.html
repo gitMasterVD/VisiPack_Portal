@@ -154,7 +154,7 @@
 
   <!-- Chat Window -->
   <div class="vp-chatbot-window" [class.open]="isChatOpen">
-    <app-chatbot></app-chatbot>
+    <app-chatbot (close)="toggleChat()"></app-chatbot>
   </div>
 </div>
   </main>

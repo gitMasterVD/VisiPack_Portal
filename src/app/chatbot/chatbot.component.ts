@@ -1,5 +1,7 @@
 import { CommonModule } from '@angular/common';
-import { Component } from '@angular/core';
+import { Output, EventEmitter } from '@angular/core';
+
+import { Component, ViewChild, ElementRef, AfterViewChecked } from '@angular/core';
 import { FormsModule } from '@angular/forms';
 
 interface Message {
@@ -21,6 +23,12 @@ interface PODetails {
   styleUrls: ['./chatbot.component.css']
 })
 export class ChatbotComponent {
+@ViewChild('scrollMe', { static: false }) private myScrollContainer!: ElementRef;
+
+@Output() close = new EventEmitter<void>();
+
+
+  
 
   userMessage = '';
   step: 'greeting' | 'po' | 'status' = 'greeting';
@@ -38,6 +46,11 @@ export class ChatbotComponent {
     PO456: { client: "Skyline Traders", item: "ITM-7741", status: "In Transit" },
     PO789: { client: "Global Exports", item: "ITM-9912", status: "Delivered" }
   };
+  // This lifecycle hook runs every time the view updates
+  ngAfterViewChecked() {        
+    this.scrollToBottom();        
+  } 
+
 
   handleUserInput() {
     const text = this.userMessage.trim();
@@ -48,6 +61,17 @@ export class ChatbotComponent {
 
     this.processMessage(text);
   }
+   scrollToBottom(): void {
+  try {
+    const element = this.myScrollContainer.nativeElement;
+    element.scrollTo({
+      top: element.scrollHeight,
+      behavior: 'smooth'
+    });
+  } catch (err) {
+    // Silence errors if element isn't rendered yet
+  }
+}
 
   processMessage(text: string) {
 
@@ -102,4 +126,8 @@ export class ChatbotComponent {
       this.step = 'po';
     }
   }
+  closeChat() {
+  this.close.emit();
+}
+
 }
